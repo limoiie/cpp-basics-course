@@ -1,6 +1,5 @@
 content:
-- Const_Qualifier
-- Volatile_Qualifier
+- Const_Volatile_Qualifier
 - Pointer_Type
 - Reference_Type
 - Array_Type
