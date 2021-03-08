@@ -1,0 +1,16 @@
+type: theory
+files:
+- name: CMakeLists.txt
+  visible: false
+- name: src/main.cpp
+  visible: true
+  placeholders:
+  - offset: 21
+    length: 58
+    placeholder_text: This is a function which prints "Hello, world!"
+  - offset: 105
+    length: 36
+    placeholder_text: This is C++'s style to print data
+  - offset: 189
+    length: 25
+    placeholder_text: std::endl is just '\n'

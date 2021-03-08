@@ -1,0 +1,14 @@
+type: choice
+is_multiple_choice: false
+options:
+- text: Common Operators 接受 Data 作为输入, 处理 (计算) 并输出 Data.
+  is_correct: true
+- text: Operators 只能用于数值计算.
+  is_correct: false
+message_correct: Congratulations!
+message_incorrect: Incorrect solution
+files:
+- name: src/main.cpp
+  visible: true
+- name: CMakeLists.txt
+  visible: false

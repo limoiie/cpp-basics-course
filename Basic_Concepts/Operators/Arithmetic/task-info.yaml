@@ -1,0 +1,8 @@
+type: theory
+files:
+- name: CMakeLists.txt
+  visible: false
+- name: src/task.cpp
+  visible: true
+- name: src/test.cpp
+  visible: false

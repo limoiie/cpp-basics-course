@@ -1,0 +1,14 @@
+type: choice
+is_multiple_choice: false
+options:
+- text: Local/Staic Variable 的 Declaration 可以与 Definition 分开
+  is_correct: false
+- text: Global Variable 的 Definition 可以置于 Usage 之后, 只要保证 Declaration 在 Usage 之前即可.
+  is_correct: true
+message_correct: Congratulations!
+message_incorrect: Incorrect solution
+files:
+- name: CMakeLists.txt
+  visible: false
+- name: src/task.cpp
+  visible: true

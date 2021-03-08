@@ -1,0 +1,19 @@
+type: choice
+is_multiple_choice: true
+options:
+- text: 符号 "<<" 和 ">>" 是 C++ 的关键字 (keyword)
+  is_correct: false
+- text: std::cerr 和 std::clog 的输出都是红色的, 说明它们都是错误输出流
+  is_correct: true
+- text: 标准输入输出流只能操作 Fundamental Type 的 Variables
+  is_correct: false
+- text: 调用 std::cerr 或 std::clog 并不会导致程序异常退出
+  is_correct: true
+message_correct: Congratulations!<br> 1. 错误是因为那些符号是 Operator Functions;<br> 3. 错误是因为通过
+  Overload 那些 Operator Functions, 标准输入输出流就可以操作自定义类型 (不用担心, 后续章节会有示例的)!
+message_incorrect: Incorrect solution
+files:
+- name: CMakeLists.txt
+  visible: false
+- name: src/main.cpp
+  visible: true

@@ -1,0 +1,14 @@
+type: output
+files:
+- name: test/output.txt
+  visible: false
+- name: CMakeLists.txt
+  visible: false
+- name: task.md
+  visible: false
+- name: src/main.cpp
+  visible: true
+  placeholders:
+  - offset: 59
+    length: 15
+    placeholder_text: /* TODO */

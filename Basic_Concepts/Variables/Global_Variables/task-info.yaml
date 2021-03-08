@@ -1,0 +1,18 @@
+type: edu
+files:
+- name: CMakeLists.txt
+  visible: false
+- name: src/task.cpp
+  visible: true
+  placeholders:
+  - offset: 0
+    length: 23
+    placeholder_text: /* global_pi=3.14 */
+- name: src/math_stuff.cpp
+  visible: true
+  placeholders:
+  - offset: 0
+    length: 24
+    placeholder_text: /* global_pi=3.14 */
+- name: test/test.cpp
+  visible: false

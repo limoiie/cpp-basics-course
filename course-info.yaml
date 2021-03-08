@@ -1,0 +1,13 @@
+title: C++ Basics Course
+language: English
+summary: |-
+  C++ Basics course.
+  Created: Feb 18, 2021, 6:37:38 PM.
+programming_language: C/C++
+environment: GoogleTest
+content:
+- Get_Started
+- Basic_Concepts
+- Statements
+- Functions
+- Classes
