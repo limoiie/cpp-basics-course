@@ -1,0 +1,7 @@
+type: framework
+content:
+- Default_Constructor
+- Convertion_Constructors
+- Copy_Constructor
+- Move_Constructor
+- Destructor
