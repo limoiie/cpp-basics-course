@@ -1,0 +1,7 @@
+content:
+- Scope
+- Block_Scope
+- Function_Scope
+- Namespace_Scope
+- Class_Scope
+- Enumeration_Scope
