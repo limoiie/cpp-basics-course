@@ -11,7 +11,7 @@ Qualifier `const`/`volatile` 可用来 Qualify 任意 Type,
 - `const` 使得 Qualified Variable 变成只读常量
   - e.g. `const int a = 10;`
 - `volatile` 标记 Variable 为不稳定的、容易发生改变的, 从而阻止 Compiler 将 unchanged Qualified Variable 当作常量进行优化;
-  它常用在嵌入式设备等硬件可靠性较差的运行环境下 
+  它常用在多线程或嵌入式设备等硬件可靠性较差的运行环境下 
   - e.g. 如下一段代码
     ```c++
     int i = 0;

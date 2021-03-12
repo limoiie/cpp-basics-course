@@ -1,36 +1,21 @@
-This is a task description file.
-Its content will be displayed to a learner
-in the **Task Description** window.
+# Union
 
-It supports both Markdown and HTML.
-To toggle the format, you can rename **task.md**
-to **task.html**, or vice versa.
-The default task description format can be changed
-in **Preferences | Tools | Education**,
-but this will not affect any existing task description files.
+Union 是一种特殊的 Class, 它在同一时刻只能持有一个 Member Variable 的值.
+具体来说, 它的每个 Member Variable 都起始于同一 Address, 共享 Address 处的 Memory; 
+调用 Union 的某个 Member Variable, 实际上是以那个 Variable 的 Type 来解读这块 Memory.
 
-The following features are available in
-**task.md/task.html** which are specific to the EduTools plugin:
+## Syntax
 
-- Hints can be added anywhere in the task text.
-Type "hint" and press Tab.
-Hints should be added to an empty line in the task text.
-In hints you can use HTML only.
-<div class="hint">Text of your hint</div>
+- `union` *attr*<b>?</b> *class-head-name* { *member-specification* }
 
-- You can insert shortcuts in the task description.
-While **task.html/task.md** is open, right-click anywhere
-on the **Editor** tab and choose the **Insert shortcut** option
-from the context menu.
-For example: &shortcut:FileStructurePopup;.
+其中 
 
-- Insert the &percnt;`IDE_NAME`&percnt; macro,
-which will be replaced by the actual IDE name.
-For example, **%IDE_NAME%**.
-
-- Insert PSI elements, by using links like
-`<a href="psi_element://link.to.element">element description</a>`.
-To get such a link, right-click the class or method
-and select **Copy Reference**.
-Then press &shortcut:EditorPaste; to insert the link where appropriate.
-For example, a <a href="psi_element://java.lang.String#contains">link to the "contains" method</a>.
+- *attr* 是 a list of attributes
+- *class-head-name* 是 Union 的 Type 名称
+- *member-specification* 是 Union 的各种 Member:
+  - Member variable with non-reference type
+  - Member function
+  - Static member variable
+  - Static member function
+  
+值得注意的是, Union 不可以有 Base Class 而且不能作为 Base Class.

@@ -1,8 +1,0 @@
-type: output
-files:
-- name: test/output.txt
-  visible: false
-- name: CMakeLists.txt
-  visible: false
-- name: src/main.cpp
-  visible: true

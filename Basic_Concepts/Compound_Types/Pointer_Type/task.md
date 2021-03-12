@@ -1,36 +1,35 @@
-This is a task description file.
-Its content will be displayed to a learner
-in the **Task Description** window.
+# Pointer Type
 
-It supports both Markdown and HTML.
-To toggle the format, you can rename **task.md**
-to **task.html**, or vice versa.
-The default task description format can be changed
-in **Preferences | Tools | Education**,
-but this will not affect any existing task description files.
+Pointer Type (指针类型) 由任意 Type 加上一个 `*` 组成.
+这个任意 Type 被称为 Element Type, Pointer 可以用来指向一个 Element Type 的 Object.
 
-The following features are available in
-**task.md/task.html** which are specific to the EduTools plugin:
+## Syntax
 
-- Hints can be added anywhere in the task text.
-Type "hint" and press Tab.
-Hints should be added to an empty line in the task text.
-In hints you can use HTML only.
-<div class="hint">Text of your hint</div>
+Pointer 本身是一个 Pointer Type 的 Variable, 值为其所指 Object 所在的 Memory Address.
+Pointer 不仅可以指向外部的 Object, Function, 还可以指向 Object 内部的 Member Variables 和 Member Functions.
 
-- You can insert shortcuts in the task description.
-While **task.html/task.md** is open, right-click anywhere
-on the **Editor** tab and choose the **Insert shortcut** option
-from the context menu.
-For example: &shortcut:FileStructurePopup;.
+- *element-type* <b>*</b> *attr*<b>?</b> *cv*<b>?</b> *declarator*
+- nested-name-specifier *element-type* <b>*</b> *attr*<b>?</b> *cv*<b>?</b> *declarator*
 
-- Insert the &percnt;`IDE_NAME`&percnt; macro,
-which will be replaced by the actual IDE name.
-For example, **%IDE_NAME%**.
+其中, 
+- *element-type* 是 Pointer 所指向的 Type
+- *attr*<b>?</b> 是 a list of attributes
+- *cv*<b>?</b> 是 qualifier `const/volatile`
 
-- Insert PSI elements, by using links like
-`<a href="psi_element://link.to.element">element description</a>`.
-To get such a link, right-click the class or method
-and select **Copy Reference**.
-Then press &shortcut:EditorPaste; to insert the link where appropriate.
-For example, a <a href="psi_element://java.lang.String#contains">link to the "contains" method</a>.
+## Pointer 相关的 Operator
+
+与 Pointer 相关的 Operator 有四种: `operator&(T&)`, `operator*()`, `operator->()` 以及 `operator[](unsigned)`.
+
+`operator&(T&)` 被称为 Address-Of Operator (取地址操作符), 
+- Operand (Input) 为一般 *lvalue*
+- Return Value (Output) 是指向 *lvalue* 的 Pointer
+
+`operator*()` 被称为 Dereference Operator (解引用操作符),
+- Return Value (Output) 是 Pointer 所指的对象的一个 Reference
+
+`operator->()` 被称为 Member-of-Pointer Operator (指针成员操作符); 
+当 Operator 指向的 Object 有 Members 时, 可用该 Operator 直接访问其 Members
+
+`operator[](unsigned)` 被称为 Subscript Operator (下标操作符),
+- Operand (Input) 为索引 Index
+- Return Value 是 - 从 Pointer 所指 Address 开始, 以 Pointer 所指 Object 的 Size 为单位, 第 Index 个 Object 的 Reference
