@@ -1,11 +1,23 @@
 # `const`- and `volatile`- Qualified Member Function
 
-一个 non-static member function 在 declare 时可以在其 *parameter-list* 后加上 qualifier `const`, `volatile` 或 `const volatile`.
-被不同的 cv-qualifier 修饰的 function 拥有不同的 type, 因此可以互相 overload.
+一个 member function 在 declare 时, 其 *parameter-list* 后可以加上 qualifier `const`, `volatile` 或 `const volatile`:
+```c++
+class cls {
+    void foo() const volatile;
+};
+```
+被不同的 cv-qualifier 修饰的 function 拥有不同的 type, 因此可以互相 overload:
+```c++
+class cls {
+    void foo();
+    void foo() const;
+    void foo() volatile;
+    void foo() const volatile;
+};
+```
 
 在一个 `const` (/`volatile`, `const volatile`) qualified member function 内,
-只能以同样 `const` (/`volatile`, `const volatile`) qualified 的形式. 
-来访问 pointer `this` 指向的 object (`*this`).
+只能以同样 `const` (/`volatile`, `const volatile`) qualified 的形式来访问 pointer `this` 指向的 object (`*this`).
 这就意味着:
 - 通过一个 `const` (/`volatile`, `const volatile`) qualified type 的 object, 
   只能访问它的 `const` (/`volatile`, `const volatile`) qualified member functions

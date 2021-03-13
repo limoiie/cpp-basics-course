@@ -1,12 +1,12 @@
 cmake_minimum_required(VERSION 3.17)
 
-project(Classes-Non_Static_Member_Functions-Ref_Qualified)
+project(Classes-Static_Members-Static_Member_Variables)
 
 set(CMAKE_CXX_STANDARD 14)
 
 # Files from `./src` directory
 set(SRC
-    src/demo.cpp)
+        src/main.cpp)
 
 
 # Running learner side code

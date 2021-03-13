@@ -1,8 +1,7 @@
 content:
+- Class_Declaration
 - Non_Static_Member_Variables
 - Non_Static_Member_Functions
-- Constructors
 - Static_Members
-- Access_Control
-- Class_Declaration
+- Constructors
 - Object_Oriental

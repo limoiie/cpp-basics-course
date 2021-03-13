@@ -1,36 +1,15 @@
-This is a task description file.
-Its content will be displayed to a learner
-in the **Task Description** window.
+# Ref-Qualified Member Function
 
-It supports both Markdown and HTML.
-To toggle the format, you can rename **task.md**
-to **task.html**, or vice versa.
-The default task description format can be changed
-in **Preferences | Tools | Education**,
-but this will not affect any existing task description files.
+一个 member function 在 declare 时, 其 *parameter-list* 后可以加上 qualifier `&`, 或 `&&`:
+```c++
+class cls {
+    void foo() &;
+    void foo() &&;
+};
+```
 
-The following features are available in
-**task.md/task.html** which are specific to the EduTools plugin:
+注意: ref-qualified member function 与 cv-qualified member function 无法互相 overload.
 
-- Hints can be added anywhere in the task text.
-Type "hint" and press Tab.
-Hints should be added to an empty line in the task text.
-In hints you can use HTML only.
-<div class="hint">Text of your hint</div>
-
-- You can insert shortcuts in the task description.
-While **task.html/task.md** is open, right-click anywhere
-on the **Editor** tab and choose the **Insert shortcut** option
-from the context menu.
-For example: &shortcut:FileStructurePopup;.
-
-- Insert the &percnt;`IDE_NAME`&percnt; macro,
-which will be replaced by the actual IDE name.
-For example, **%IDE_NAME%**.
-
-- Insert PSI elements, by using links like
-`<a href="psi_element://link.to.element">element description</a>`.
-To get such a link, right-click the class or method
-and select **Copy Reference**.
-Then press &shortcut:EditorPaste; to insert the link where appropriate.
-For example, a <a href="psi_element://java.lang.String#contains">link to the "contains" method</a>.
+与 cv-qualifier 相同的是, 当通过一个 object 访问它的 qualified member 时, compiler 会首先尝试将该 object 的 type 转型成拥有 member's qualifier 的 type.
+只有转型成功, 才能通过此 object 访问到此 qualified member. 
+当受访 member 是 member function 时, 在该 function body 里所见到的 `this` object 的 type 也将是转型后的.
