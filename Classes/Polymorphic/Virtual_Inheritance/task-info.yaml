@@ -1,0 +1,8 @@
+type: theory
+files:
+- name: CMakeLists.txt
+  visible: false
+- name: src/coffee.cpp
+  visible: true
+- name: src/demo.cpp
+  visible: true

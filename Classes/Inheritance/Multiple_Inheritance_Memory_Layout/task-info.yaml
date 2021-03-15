@@ -1,0 +1,8 @@
+type: theory
+files:
+- name: CMakeLists.txt
+  visible: false
+- name: pics/memory_layout_of_multi_derived.png
+  visible: false
+- name: src/demo.cpp
+  visible: true

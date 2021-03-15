@@ -1,0 +1,10 @@
+type: theory
+files:
+- name: CMakeLists.txt
+  visible: false
+- name: pics/derived_bro_vtable.png
+  visible: true
+- name: pics/derived_vtable.png
+  visible: false
+- name: src/demo.cpp
+  visible: false
