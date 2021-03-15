@@ -30,6 +30,10 @@ struct multi_derived : public derived, public derived_bro {
         std::cout << "goo()" << std::endl;
     }
 
+    virtual void hoo() {
+        std::cout << "hoo()" << std::endl;
+    }
+
     void too() {
         std::cout << "too()" << std::endl;
     }
@@ -66,19 +70,6 @@ DEMO(RevisitMultipleInheritanceMemoryLayout, MultiDerivedMemoryLayout) { // NOLI
     print_range_of_field("^^^^^^^^^^^^^^^^^^^^^^derived_bro part", *(derived_bro *) p_obj, start);
 
     print_range_of_field("^^^^^^^^^^^^^^^^^^^^multi_derived part", *p_obj, start);
-
-    auto * p_obj2 = new multi_derived();
-    auto * p_bro = new derived_bro();
-
-    p_bro->foo();
-    p_obj2->too();
-    p_obj2->goo();
-
-    std::cout << &base::foo << std::endl;
-    std::cout << &derived::foo << std::endl;
-    std::cout << &multi_derived::foo << std::endl;
-    std::cout << &multi_derived::goo << std::endl;
-    std::cout << &multi_derived::too << std::endl;
 
     delete p_obj;
 
