@@ -7,7 +7,7 @@ Non-static member variables 有两种 initialization 的方式:
 - 通过 default-member-initializer
   - `{}` initializer
     - e.g.
-      如 [*demo*](psi_element://MemberVarInitialization_Initialization_Test) 中 `class coffee` 对
+      如 [*demo*](psi_element://MemberVarInitialization_Initialization_Test) 中 `class coffee_t` 对
       member variable `milk_percentage, sugar_percentage` 的 initialization
       ```c++
       double milk_percentage { 0.0 };
@@ -15,7 +15,7 @@ Non-static member variables 有两种 initialization 的方式:
       ``` 
   - `=` initializer
     - e.g.
-      如 [*demo*](psi_element://MemberVarInitialization_Initialization_Test) 中 `class coffee` 对
+      如 [*demo*](psi_element://MemberVarInitialization_Initialization_Test) 中 `class coffee_t` 对
       member variable `brand` 的 initialization
       ```c++
       std::string brand = "Nescafe";
@@ -23,11 +23,11 @@ Non-static member variables 有两种 initialization 的方式:
 
 - 通过 constructor 的 member-initializer-list
     - e.g.
-      如 [*demo*](psi_element://MemberVarInitialization_Initialization_Test) 中 `class coffee` 对
+      如 [*demo*](psi_element://MemberVarInitialization_Initialization_Test) 中 `class coffee_t` 对
       member variables `price, cup_size, maker` 的 initialization:
       ```c++
       // constructor
-      coffee(double price, 
+      coffee_t(double price, 
              Cup cup_size, 
              employee const&maker)
               : price(price)

@@ -4,7 +4,7 @@ Type conversion operators 支持 implicitly (隐式地) 或 explicit (显式地)
 这些 operators **必须**被 declare 成 source class type 的 non-static member functions, 
 
 注意: type conversion operators 是将当前 class type 转成 target type.
-若要实现将其他 source type 转成当前 class type, 请见 [Conversion Constructor](course://). 
+若要实现将其他 source type 转成当前 class type, 请见 [Conversion Constructor](course://Classes/Constructors/Conversion_Constructors). 
 
 ## Syntax
 

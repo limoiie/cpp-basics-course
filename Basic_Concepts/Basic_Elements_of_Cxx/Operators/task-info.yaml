@@ -8,7 +8,7 @@ options:
 message_correct: Congratulations!
 message_incorrect: Incorrect solution
 files:
-- name: src/main.cpp
-  visible: true
 - name: CMakeLists.txt
   visible: false
+- name: src/main.cpp
+  visible: true

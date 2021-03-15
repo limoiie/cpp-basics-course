@@ -10,7 +10,7 @@ struct employee {
 
 };
 
-struct coffee {
+struct coffee_t {
 
     enum Cup {
         BIG_CUP,
@@ -19,7 +19,7 @@ struct coffee {
     };
 
     /**
-     * Brand of coffee:
+     * Brand of coffee_t:
      * - Starbucks
      * - Costa Coffee
      * - Nescafe
@@ -38,9 +38,9 @@ struct coffee {
     employee const &maker;
 
     // constructor
-    coffee(double price,
-           Cup cup_size,
-           employee const&maker)
+    coffee_t(double price,
+             Cup cup_size,
+             employee const&maker)
             : price(price)
             , cup_size(cup_size)
             , maker(maker) {

@@ -1,36 +1,44 @@
-This is a task description file.
-Its content will be displayed to a learner
-in the **Task Description** window.
+# Destructor
 
-It supports both Markdown and HTML.
-To toggle the format, you can rename **task.md**
-to **task.html**, or vice versa.
-The default task description format can be changed
-in **Preferences | Tools | Education**,
-but this will not affect any existing task description files.
+Destructor 是一类特殊的 non-static member function.
+它会在一个 object 的 lifetime 结束时被调用, 用来释放在其整个 lifetime 里获取到的资源.
 
-The following features are available in
-**task.md/task.html** which are specific to the EduTools plugin:
+## Syntax
 
-- Hints can be added anywhere in the task text.
-Type "hint" and press Tab.
-Hints should be added to an empty line in the task text.
-In hints you can use HTML only.
-<div class="hint">Text of your hint</div>
+- *decl-specifier-seq*<b>?</b> **~** *class-name* **()**;
+- *decl-specifier-seq*<b>?</b> **~** *class-name* **()** `= default`;
+- *decl-specifier-seq*<b>?</b> **~** *class-name* **()** `= delete`;
 
-- You can insert shortcuts in the task description.
-While **task.html/task.md** is open, right-click anywhere
-on the **Editor** tab and choose the **Insert shortcut** option
-from the context menu.
-For example: &shortcut:FileStructurePopup;.
+其中,
 
-- Insert the &percnt;`IDE_NAME`&percnt; macro,
-which will be replaced by the actual IDE name.
-For example, **%IDE_NAME%**.
+- *class-name* 是当前的 class name
+- *decl-specifier-seq*<b>?</b> 可选项, 是 `friend`, `inline`, `virtual` 的组合
 
-- Insert PSI elements, by using links like
-`<a href="psi_element://link.to.element">element description</a>`.
-To get such a link, right-click the class or method
-and select **Copy Reference**.
-Then press &shortcut:EditorPaste; to insert the link where appropriate.
-For example, a <a href="psi_element://java.lang.String#contains">link to the "contains" method</a>.
+## When Be Called
+
+Destructor 什么时候会被调用? [(*demo*)](psi_element://Constructors_Destructor_Test)
+1. program termination, for objects with static storage duration
+2. thread exit, for objects with thread-local storage duration
+3. end of scope, for objects with automatic storage duration and for temporaries whose life was extended by binding to a reference
+4. delete-expression, for objects with dynamic storage duration
+5. end of the full expression, for nameless temporaries
+6. stack unwinding, for objects with automatic storage duration when an exception escapes their block, uncaught.
+
+## Implicitly-Declared Default Destructor
+
+当一个 class 没有 user-defined destructors 时, compiler 往往会为该 class 提供一个 inline public 的 default destructor.
+
+## Implicitly-Deleted Default Destructor
+
+对于一个 `class T` 来说, 当下列情况发生时, 它的 default destructor 将会被标记为 deleted:
+- `T` 有一个 member 不能被 destructed
+- `T` 的某一个 direct or virtual base class 不能被 destructed
+- 没有可用(或可访问)的 destructor
+
+当一个 class 的 destructor 被标记为 deleted 时, 
+我们就只能使用 `new` 来创建其 object, 并且不能使用 `delete` 来释放它 [(*demo*)](psi_element://Constructors_DeletedDestructor_Test).
+
+## Implicitly-Defined Default Destructor
+
+当 implicitly-declared default destructor 没有被标记为 deleted 时, 那么 compiler 就会 implicitly define (generate and compile a function body) 它.
+这个 implicitly-defined default destructor 的 function body 将为空.

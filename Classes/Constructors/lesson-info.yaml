@@ -1,7 +1,8 @@
-type: framework
 content:
+- Constructers
 - Default_Constructor
-- Convertion_Constructors
+- Explicit Specifier
+- Conversion_Constructors
 - Copy_Constructor
 - Move_Constructor
 - Destructor

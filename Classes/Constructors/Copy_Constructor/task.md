@@ -1,36 +1,50 @@
-This is a task description file.
-Its content will be displayed to a learner
-in the **Task Description** window.
+# Copy Constructor
 
-It supports both Markdown and HTML.
-To toggle the format, you can rename **task.md**
-to **task.html**, or vice versa.
-The default task description format can be changed
-in **Preferences | Tools | Education**,
-but this will not affect any existing task description files.
+Copy constructor 会在进行 copy initialization 时被调用.
+一个 `class T` 的 copy constructor 是满足如下条件的 constructor [(*demo*)](psi_element://__only_for_anchor_used__copy_constructor):
+- 第一个 parameter 具有 type `T&`, `const T&`, `volatile T&` 或 `const volatile T&`
+- 剩下的 parameters
+  - 要么仅此一个 parameter
+  - 要么都指定有 default-arguments
 
-The following features are available in
-**task.md/task.html** which are specific to the EduTools plugin:
+## Syntax
 
-- Hints can be added anywhere in the task text.
-Type "hint" and press Tab.
-Hints should be added to an empty line in the task text.
-In hints you can use HTML only.
-<div class="hint">Text of your hint</div>
+1. *class_name* **(** `const` *class_name* `&` **)** *noexcept-expr*<b>?</b> <br>
+   &#20;&#20;&#20;&#20;&#20;&#20;&#20;&#20;*member-initializer-list*<b>?</b> **{** <br>
+   &#20;&#20;&#20;&#20; *function-body*<br>
+   **}**
+2. *class_name* **(** `const` *class_name* `&` **)** = `default`;
+3. *class_name* **(** `const` *class_name* `&` **)** = `delete`;
 
-- You can insert shortcuts in the task description.
-While **task.html/task.md** is open, right-click anywhere
-on the **Editor** tab and choose the **Insert shortcut** option
-from the context menu.
-For example: &shortcut:FileStructurePopup;.
+## Implicitly-Declared Default Copy Constructor
 
-- Insert the &percnt;`IDE_NAME`&percnt; macro,
-which will be replaced by the actual IDE name.
-For example, **%IDE_NAME%**.
+当一个 class 没有 user-defined copy constructors 时, compiler 往往会为该 class 创建一个 inline public 的 default copy constructor [(*demo*)](psi_element://Constructors_ImplicitlyDeclaredCopy_Test).
+该 default copy constructor 会为每个 member variable 采取 copy-initialization.
 
-- Insert PSI elements, by using links like
-`<a href="psi_element://link.to.element">element description</a>`.
-To get such a link, right-click the class or method
-and select **Copy Reference**.
-Then press &shortcut:EditorPaste; to insert the link where appropriate.
-For example, a <a href="psi_element://java.lang.String#contains">link to the "contains" method</a>.
+当一个 class 已有 user-defined copy constructor 时,
+若仍想让 compiler 为该 class 创建一个 default copy constructor,
+可以采用 syntax 2 的方式声明一个 implicitly-declared default copy constructor [(*demo*)](psi_element://Constructors_ImplicitlyDefinedCopy_Test).
+
+## Implicitly-Defined Default Copy Constructor
+
+当 implicitly-declared default copy constructor 没有被标记为 deleted 时, 那么 compiler 就会 implicitly define (generate and compile a function body) 它.
+该 default copy constructor 会 copy 当前 class 的 base class 以及当前 class 中的每一个 non-static member.
+
+## Deleted Implicitly-Declared Default Copy Constructor
+
+对于一个 `class T` 来说, 当下列情况发生时, 它的 default copy constructor 将会被标记为 `deleted`:
+- `T` 有一个 member 不能被 copy
+- `T` 有一个 member 是 rvalue reference
+- `T` 的某一个 direct or virtual base class 不能被 copy
+- `T` 的某一个 direct or virtual base class 没有可用(或可访问)的 destructor
+
+## Copy Constructor VS Copy Assign Operator
+
+调用 copy constructor 发生在用一个 object 来 initialize 另一个 object with the same type 时:
+1. initialization (其中, `a` 和 `b` 具有相同类型 `T`):
+    - `T a = b;` 
+    - `T a(b);`
+2. function argument passing: `f(a);` (其中 function `f` 的 type 类似于 `void f(T a)`:
+3. function return: `return a;` (其所在 function `f` 的 type 类似于 `T f()`, 而且 `T` 没有 move constructor)
+
+而在 assignment 时则会调用 copy assign operator [(*demo*)](psi_element://Constructors_CopyConstructorAssignOperator_Test).

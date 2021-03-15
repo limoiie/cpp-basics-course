@@ -1,7 +1,7 @@
 # Declaration
 
 Member variables 被 declare 在 class body 里.
-Member variables 的 declaration 很简单, 大部分情况下与正常的 variable declaration 无异 [(*demo*)](psi_element://coffee),
+Member variables 的 declaration 很简单, 大部分情况下与正常的 variable declaration 无异 [(*demo*)](psi_element://coffee_t),
 除了:
 - 不可使用 specifier `extern`, `register` 和 `thread_local` (要求 member variables 都必须只属于当前 class 的 object)
 - 不可使用 auto type (auto type 推导发生在 class definition 之后?)

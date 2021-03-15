@@ -34,6 +34,7 @@ macro(configure_test_target _target_name _src_files _test_files)
     endif ()
 
     message("${_target_name} __src is ${__src_files}")
+    message("${_target_name} __test is ${__test_files}")
 
     if (__src_files)
         set(_src_part_lib ${_target_name}-src-part)

@@ -6,7 +6,7 @@ struct employee {
 
 };
 
-struct coffee {
+struct coffee_t {
 
     enum Cup {
         BIG_CUP,
@@ -15,7 +15,7 @@ struct coffee {
     };
 
     /**
-     * Brand of coffee:
+     * Brand of coffee_t:
      * - Starbucks
      * - Costa Coffee
      * - Nescafe

@@ -13,7 +13,7 @@ Non-static member function 也简称为 member function.
 - virtual and pure specifiers - `virtual`
 - final and override specifiers - `final` and `override` 
 
-其中后两种是与 object-oriental programming 相关的技术, 将放到 [lesson Object Oriental Programming](course://Classes/Object_Oriental) 中. 
+其中后两种是与 object-oriental programming 相关的技术, 将放到 [lesson Object Oriental Programming](course://Classes/Encapsulation) 中. 
 本 lesson 只介绍前两种 syntax elements.
 
 按照功能, 可归类几种特殊的 member functions:
