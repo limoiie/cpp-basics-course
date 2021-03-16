@@ -10,11 +10,16 @@ Virtual table 根据 wiki 的定义:
 
 本质上, virtual table 就是一个存储着 member function pointers 的 array.
 在 compilation 期间, compiler 会为拥有 virtual function 的每一个 class 都创建一个唯一与之对应的 virtual table.
+一个 class 的 virtual table 的构建步骤可能如下: 
+1. *Copy*: 复制 base class 的 virtual table;
+2. *Override*: 用 override 的 member functions 覆盖 virtual table 中同名的 member functions;
+3. *Extend*: 在 virtual table 末尾追加 class 最新添加的 virtual member functions.
+
+因此, type-compatible 的 classes 的 virtual table 拥有相似的 layout, 即:
+拥有相同名称的 virtual member functions 会分别出现在对应 virtual table 相同的 index 处.
+
 这个 class 所有的 objects 共享这一个 virtual table.
 而 virtual table 里存着的 pointers, 实际上就指向对应 class 里的 virtual member functions.
-
-另外, Type-compatible 的 classes 的 virtual table 拥有相似的 layout, 即:
-拥有相同名称的 virtual member functions 会分别出现在对应 virtual table 相同的 index 处.
 
 ### A Layout Example
 

@@ -4,7 +4,5 @@ files:
   visible: false
 - name: test/test.cpp
   visible: false
-- name: pics/vtable.png
-  visible: false
 - name: src/demo.cpp
   visible: true
