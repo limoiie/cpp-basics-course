@@ -21,9 +21,9 @@
 
 这个 bug 的原因很好理解. 根据
 [task Revisit Multiple Inheritance Memory Layout](course://Classes/Polymorphic/Revisit_Multiple_Inheritance_Memory_Layout)
-可知, 实际上 multiple derived class (class with_milk_and_sugar_t) 里有两份 base class (class coffee_t) 的 memory layout;
-同时也有两个 virtual table pointers, 一个指向 `class with_milk_t`, 一个指向 `class with_sugar_t`.
-在执行 `with_milk_and_sugar_t::content` 时, `with_milk_t::content` 和 `with_sugar_t::content` 在各自 memory layout 中运行, 也就出现了上述冲突.
+可知, 实际上 multiple derived class (`class with_milk_and_sugar_t`) 里有两份 base class (`class coffee_t`) 的 memory layout, 
+同时也有两个 virtual table pointers.
+当执行 `with_milk_and_sugar_t::content` 时, `with_milk_t::content` 和 `with_sugar_t::content` 会在各自 memory layout 中运行, 也就出现了上述冲突.
 
 那么有没有什么方法解决这个问题呢? 有, virtual inheritance, 请见下节.
 
