@@ -8,15 +8,18 @@
 [task Memory Layout in Single Inheritance](course://Classes/Inheritance/Single_Inheritance_Memory_Layout) 
 里的例子, 只不过这次为 base `class base`
 [(*here*)](psi_element://__only_for_anchor_used__memory_layout_base_with_vtable)
-和其中一个 derived `class derived`
+和 derived `class derived, class derived_bro`
 [(*here*)](psi_element://__only_for_anchor_used__memory_layout_derived_with_vtable)
-添加 virtual member function.
+添加 virtual member functions.
 三者之间的 inheritance 关系依旧, 如下所示:
 ```c++
 class base;
 class derived : public base;
 class derived_bro : public base;
 ```
+
+## Memory Layout of Derived Classes
+
 此时, `class derived`
 [(*here*)](psi_element://__only_for_anchor_used__memory_layout_derived_with_vtable)
 的 memory layout 将如下:
@@ -31,6 +34,19 @@ class derived_bro : public base;
 
 当对应 class 中有 virtual member function 时, object layout 的前端就会多一个 8 字节的 pointer
 (图中<span style="background: #bfbfff; color: black"> 紫色 </span>的区域) 指向当前 object 的 virtual table.
+
+## Virtual Tables of Derived Classes
+
+对于一个拥有 virtual table 的 class, 它的所有 objects 共享这一个 virtual table.
+也就是说, 对于来自同一个 polymorphic class 的 objects, 它们的 virtual table pointers 都指向同一个 virtual table.
+
+在 `class derived` 的 virtual table 中, 来自 `class base` 的 `foo()` 被 override, 如下图所示:
+
+![Object Layout of class derived bro with vtable](pics/derived_vtable_link.png)
+
+`class derived_bro` 的 virtual table 如下图所示:
+
+![Object Layout of class derived bro with vtable](pics/derived_bro_vtable_link.png)
 
 ## Pointer Type Conversion between Inheritance Hierarchy
 

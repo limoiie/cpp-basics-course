@@ -15,12 +15,15 @@ struct derived : public base {
     const char *s{};
 
     void foo() override {}
+    virtual void tuu() {}
 };
 
 DEMO_ANCHOR(memory_layout_derived_bro_with_vtable)
 struct derived_bro : public base {
     float *f{nullptr};
     unsigned *u{nullptr};
+
+    virtual void gee() {}
 };
 
 DEMO(RevisitSingleInheritanceMemoryLayout, DerivedMemoryLayout) { // NOLINT(cert-err58-cpp)

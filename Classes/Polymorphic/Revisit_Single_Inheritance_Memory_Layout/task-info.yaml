@@ -6,5 +6,9 @@ files:
   visible: true
 - name: pics/derived_vtable.png
   visible: false
+- name: pics/derived_bro_vtable_link.png
+  visible: false
+- name: pics/derived_vtable_link.png
+  visible: false
 - name: src/demo.cpp
   visible: false
