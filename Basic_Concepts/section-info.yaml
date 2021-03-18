@@ -1,12 +1,4 @@
 content:
 - Basic_Elements_of_Cxx
-- Fundamental_Types
-- Literals
-- Variables
-- Compound_Types
-- Operators
 - Flow_of_Controls
 - Preprocess
-- Functions
-- Classes
-- Customized_Types

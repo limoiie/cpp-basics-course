@@ -1,6 +1,0 @@
-type: theory
-files:
-- name: CMakeLists.txt
-  visible: false
-- name: src/demo.cpp
-  visible: true

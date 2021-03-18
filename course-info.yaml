@@ -8,6 +8,8 @@ environment: GoogleTest
 content:
 - Get_Started
 - Basic_Concepts
+- Variables_and_Basic_Types
+- Expressions
 - Statements
 - Functions
 - Classes

@@ -1,5 +1,6 @@
 content:
 - Declaration
 - Definition
-- Usage_Expression
 - Scopes
+- Classes
+- Functions

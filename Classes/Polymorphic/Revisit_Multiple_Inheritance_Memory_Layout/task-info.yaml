@@ -2,9 +2,9 @@ type: theory
 files:
 - name: CMakeLists.txt
   visible: false
-- name: src/demo.cpp
-  visible: true
 - name: pics/multi_derived_vtable_link.png
   visible: false
 - name: pics/multi_derived_vtable.png
   visible: false
+- name: src/demo.cpp
+  visible: true

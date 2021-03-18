@@ -1,6 +1,6 @@
 #include "demo.h"
 
-DEMO(MacroDefinition, Simple) { // NOLINT(cert-err58-cpp)
+DEMO(MacroDefine, Define) { // NOLINT(cert-err58-cpp)
 
 #define ALL_DAYS_PER_YEAR 365
 #define PI 3.141592654
@@ -12,10 +12,10 @@ DEMO(MacroDefinition, Simple) { // NOLINT(cert-err58-cpp)
 
 }
 
-DEMO(MacroExpanding, Simple) { // NOLINT(cert-err58-cpp)
+DEMO(MacroDefine, Expanding) { // NOLINT(cert-err58-cpp)
 
 #define VAR_NAME age
-    int VAR_NAME = 10;
+    int VAR_NAME = 10; // exactly equals to 'int age = 10;'
 
     std::cout << age << std::endl;
 

@@ -2,10 +2,6 @@ type: theory
 files:
 - name: CMakeLists.txt
   visible: false
-- name: src/coffee.cpp
-  visible: true
-- name: src/demo.cpp
-  visible: true
 - name: pics/derived_bro_vtable_virtual.png
   visible: false
 - name: pics/derived_vtable_virutal.png
@@ -14,3 +10,7 @@ files:
   visible: false
 - name: pics/multi_derived_vtable_virtual_link.png
   visible: false
+- name: src/coffee.cpp
+  visible: true
+- name: src/demo.cpp
+  visible: true
