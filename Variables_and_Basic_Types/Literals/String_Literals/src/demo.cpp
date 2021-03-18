@@ -27,12 +27,14 @@ DEMO(StringLiterals, MultiLineString) { // NOLINT(cert-err58-cpp)
 
 DEMO(StringLiterals, RawStringLiteral) { // NOLINT(cert-err58-cpp)
 
-    auto s1 = R"('\n' is a escaped character)";
+    // the escape character won't be escaped in a raw string literal
+    auto s1 = R"('\n' is a escaped character)"; // == "'\\n' is a escaped character"
     auto s2 =   "'\n' is a escaped character";
 
     std::cout << "s1: " << s1 << std::endl
               << "s2: " << s2 << std::endl;
 
+    // you can insert double-quota " in a raw string literal
     auto s3 = R"(Raw string Literal can contains any number of ": """")";
     std::cout << s3 << std::endl;
 

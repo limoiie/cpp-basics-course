@@ -3,8 +3,9 @@
 int main() {
     std::cout << std::boolalpha
               << true << std::endl
-              << false << std::endl
-              << std::noboolalpha
+              << false << std::endl;
+
+    std::cout << std::noboolalpha
               << true << std::endl
               << false << std::endl;
 

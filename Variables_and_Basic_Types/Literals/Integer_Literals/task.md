@@ -1,8 +1,14 @@
 # Integer Literal
 
-## Syntax
+C++ 支持十进制, 八进制, 十六进制以及二进制的 integer literal
+[(*demo*)](psi_element://IntegerLiterals_Literals_Test).
 
-一个 Integer Literal 有如下几个形式:
+同时, C++ 也允许通过添加 type suffix 的形式为 integer literal 指定 integer type
+[(*demo*)](psi_element://IntegerLiterals_TypeSuffix_Test).
+
+## Syntax of Literal *
+
+详细的 syntax 如下所示:
 
 1. *decimal-literal integer-suffix*
 2. *octal-literal integer-suffix*
@@ -23,15 +29,20 @@
   - i.e. `0x00101, 0x1111, ...`
 - *integer-suffix* 可选项; 若提供了的话, 会包含一个或两个如下后缀:
   - *unsigned-suffix* (the character `u` or the character `U`)
-  - one of 
+  - *size-suffix*
     - *long-suffix* (the character `l` or the character `L`)
     - *long-long-suffix* (the character sequence `ll` or the character sequence `LL`)
   - i.e. `10u, 10ul, 10ull, 10l, ...`
+  
+## Type of Literal *
 
+如果一个 integer literal 指定了 *integer-suffix*, 那么它的 type 对应于 *integer-suffix*.
+否则, 一个 integer literal 可以拥有许多候选 types, 而它真正的 type 是这些候选 types 中满足如下条件的那一个:
+1. size 足够大, 大到可以容纳该 literal;
+2. modified 程度最小, 也就是对 `int` 的 signedness 或 size 的修改程度最小
 
-## The Type of the Literal
+如 literal `10`, 它的候选 types 有 `short int`, `int`, `long int` 等等.
+其中所有的 types 都可以容纳 `10`; 而对 `int` 而言 modified 程度最小的自然是 `int`.
+因此, literal `10` 的 type 就是 `int`.
 
-一个 Integer Literal 的值可以用来 initialize 多个 Types, 如 `10` 可以 initialize `int, long int, long long int`.
-而该 Literal 的 Type 就是这些个 Type 中 Modified 程度最小的那一个, 如 `10` 的 Type 就是 `int`.
-
-详尽的 The Type of the Literal 信息请参照 [The Type of Integer Literal](https://en.cppreference.com/w/cpp/language/integer_literal#The_type_of_the_literal).
+See more on [The Type of Integer Literal](https://en.cppreference.com/w/cpp/language/integer_literal#The_type_of_the_literal).
