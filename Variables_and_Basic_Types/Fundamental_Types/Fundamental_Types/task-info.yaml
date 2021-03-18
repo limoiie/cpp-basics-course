@@ -1,0 +1,22 @@
+type: choice
+is_multiple_choice: true
+options:
+- text: int 是 32-bit, long 是 64-bit
+  is_correct: false
+- text: unsigned -1 与 signed -1 在二进制层面上相等, 都是 0xFFFFFFFF (若 32-bit 的话)
+  is_correct: true
+- text: unsigned -1 与 signed -1 值相等
+  is_correct: false
+- text: bool 是 1-bit, char 是 8-bit
+  is_correct: false
+- text: 小数默认 Type 是 double
+  is_correct: true
+message_correct: Congratulations!<br> 1. 错误是因为 int 和 long 的大小依操作系统而定;<br> 3. 错误是因为虽然二进制形式相等,
+  但对值的表示不同; unsigned 将 -1 表示为 4294967295;<br> 4. 错误是因为 bool 也是 8-bit 的, 这是因为机器寻址的基本单位就是
+  byte (char), 若要仅读取一个 bit 还需要特殊操作, 所以考虑到读写效率将 bool 定义为一个 byte (char) 的长度.
+message_incorrect: Incorrect solution
+files:
+- name: CMakeLists.txt
+  visible: false
+- name: src/main.cpp
+  visible: true
