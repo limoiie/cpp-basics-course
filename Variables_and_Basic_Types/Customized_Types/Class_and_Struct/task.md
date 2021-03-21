@@ -1,23 +1,32 @@
 # Class and Struct
 
-Class 或 Struct (C++ 里这两者概念一致, 后续统一简称 Class) 用于创建自定义 Data Structure (数据结构).
-通常意义上, Data Structure 是将一些相关数据和操作该相关数据的逻辑组合在一起的一种手段.
-
-C++ 提供 Keywords `class` 和 `struct` 专门用于 Declare 和 Define 一个 Class.
+Class 或 Struct (这两者在C++ 里的概念一致, 后续统一简称 class) 用于创建自定义 type.
+通过 class, 可以将相关的一些 variables, 以及与这些 variables 关联紧密的 functions 组合在一起.
+因此, class 也被称为 data structure.
 
 ## Declaration Syntax
 
-- `class` *declarator*
-- `struct` *declarator*
+可如下 define 一个 class:
+
+- `struct` *declarator* {<br>
+  &#20;&#20;&#20;&#20;*member-specification*<br>
+  }
+- `class` *declarator* {<br>
+  &#20;&#20;&#20;&#20;*member-specification*<br>
+  }
 
 其中
 
-- *declarator* 是 Class 或 Struct 的名称
+- *declarator* 是 class's name
+- *member-specification* 是 class's members
 
 ## Explanation
 
-用 `class` 与 用 `struct` Declare 的 Class 并无本质不同.
-两者唯一区别是默认 Member Accessibility 不同: 
-`class` 默认是 `private` 而 `struct` 默认是 `public`.
-
-每一个 Class 就是一个独一无二的 Type, 使用 Class 如同使用其他 Type 一样.
+用 `class` 与 用 `struct` define 的 class 并无本质不同.
+两者唯一区别是默认 
+[member accessibility](course://Classes/Encapsulation/Access_Control)
+不同:
+- `struct` 默认 members 是 `public` 的
+  [(*demo*)](psi_element://CustomizedTypesClass_Struct_Test);
+- `class` 默认 members 是 `private` 的
+  [(*demo*)](psi_element://CustomizedTypes_Class_Test).
