@@ -1,8 +1,10 @@
 #include <iostream>
 
 void test_macro_file_line() {
-    std::cout << "LINE " << __LINE__ << " of FILE " << __FILE_NAME__
-              << " on DATE " << __DATE__ << " at TIME " << __TIME__
+    std::cout << "LINE " << __LINE__ << std::endl
+              << " of FILE " << __FILE_NAME__ << std::endl
+              << " on DATE " << __DATE__ << std::endl
+              << " at TIME " << __TIME__ << std::endl
               << " from FUNC " << __func__ << std::endl;
 }
 
