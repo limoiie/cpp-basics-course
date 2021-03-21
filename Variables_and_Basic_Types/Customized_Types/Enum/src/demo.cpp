@@ -1,66 +1,56 @@
 #include "demo.h"
 #include "randoms.h"
 
-enum Color {
-    red,
-    green,
-    blue
-};
-
-Color random_color() {
-    switch (rand_int(3)) {
-        case 0:
-            return red;
-        case 1:
-            return green;
-        default:
-            return blue;
-    }
-}
-
-DEMO(CustomizedTypesEnum, Simple) { // NOLINT(cert-err58-cpp)
+DEMO(CustomizedTypesEnum, UnscopedEnum) { // NOLINT(cert-err58-cpp)
 
     // un-scoped enumeration
-    Color c = random_color();
+    enum color_e {
+        red,
+        green,
+        blue
+    };
 
-    switch (c) {
-        case red: // access the enumerator directly
-            std::cout << "red" << std::endl;
-            break;
-        case green:
-            std::cout << "green" << std::endl;
-            break;
-        case blue:
-            std::cout << "blue" << std::endl;
-            break;
-    }
+    auto const c = []() {
+        switch (rand_int(3)) {
+            case 0:
+                return red; // can access the enumerator directly
+            case 1:
+                return green;
+            default:
+                return blue;
+        }
+    }();
+
+    int const i = c;
+    std::cout << "(int) c == " << i << std::endl;
 
 }
 
-enum class Emotion {
-    blue,
-    happy,
-    angry
-};
-
-DEMO(CustomizedTypesEnum, UnScopedVsScoped) { // NOLINT(cert-err58-cpp)
-
-    // un-scoped enumeration
-    Color c = blue; // access the enumerator directly
+DEMO(CustomizedTypesEnum, ScopedEnum) { // NOLINT(cert-err58-cpp)
 
     // scoped enumeration
-    Emotion s = Emotion::blue; // access the enumerator with the prefix Size::
+    enum class emotion_e {
+        blue,
+        happy,
+        angry
+    };
+
+    auto const e = emotion_e::blue; // access the enumerator with scope qualifier 'emotion_e::'
+
+    //int const i = e;
+    int const i = (int) e;
+    std::cout << "(int) emotion_e::happy == " << i << std::endl;
 
 }
 
 enum Number {
     ONE = 1,
-    TWO = ONE + 1,
+    FOUR = ONE + 3,
 };
 
-DEMO(CustomizedTypesEnum, WithInit) { // NOLINT(cert-err58-cpp)
+DEMO(CustomizedTypesEnum, Constexpr) { // NOLINT(cert-err58-cpp)
 
     std::cout << ONE << std::endl;
-    std::cout << TWO << std::endl;
+    std::cout << FOUR << std::endl;
 
 }

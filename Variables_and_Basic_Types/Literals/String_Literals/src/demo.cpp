@@ -34,7 +34,7 @@ DEMO(StringLiterals, RawStringLiteral) { // NOLINT(cert-err58-cpp)
     std::cout << "s1: " << s1 << std::endl
               << "s2: " << s2 << std::endl;
 
-    // you can insert double-quota " in a raw string literal
+    // you can insert double-quote " in a raw string literal
     auto s3 = R"(Raw string Literal can contains any number of ": """")";
     std::cout << s3 << std::endl;
 

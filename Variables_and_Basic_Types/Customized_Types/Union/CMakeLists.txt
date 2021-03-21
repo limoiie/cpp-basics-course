@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD 14)
 
 # Files from `./src` directory
 set(SRC
-    src/main.cpp)
+    src/demo.cpp)
 
 
 # Running learner side code

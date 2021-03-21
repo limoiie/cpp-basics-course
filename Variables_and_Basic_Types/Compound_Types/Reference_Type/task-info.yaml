@@ -2,5 +2,5 @@ type: theory
 files:
 - name: CMakeLists.txt
   visible: false
-- name: src/main.cpp
+- name: src/demo.cpp
   visible: true

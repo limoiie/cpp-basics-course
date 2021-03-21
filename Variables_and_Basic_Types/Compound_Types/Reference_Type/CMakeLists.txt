@@ -9,7 +9,7 @@ set(SRC
         )
 
 set(TEST
-        src/main.cpp)
+    src/demo.cpp)
 
 
 # Running learner side code
