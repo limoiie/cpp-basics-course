@@ -13,6 +13,10 @@
 //#  define DEMO_BOUNDARY_END(N)
 #endif
 
+#ifndef DEMO_BLOCK
+#define DEMO_BLOCK() namespace
+#endif
+
 #ifndef DEMO_MEMBER_ANCHOR
 # define DEMO_MEMBER_ANCHOR(id) friend void __only_for_anchor_used__##id();
 #endif

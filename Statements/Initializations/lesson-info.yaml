@@ -1,0 +1,9 @@
+content:
+- Initializer_and_Initializer_List
+- Default_Initialization
+- Zero_Initialization
+- Value_Initialization
+- Copy_Initialization
+- Direct_Initialization
+- List_Initialization
+- Aggragate_Initialization
