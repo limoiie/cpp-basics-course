@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.17)
 
-project(Statements-Declaration-Lifetime)
+project(Statements-Declaration-Name_and_Identity)
 
 set(CMAKE_CXX_STANDARD 14)
 
