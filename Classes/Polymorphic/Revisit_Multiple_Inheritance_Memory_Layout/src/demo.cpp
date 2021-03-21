@@ -77,8 +77,6 @@ DEMO(RevisitMultipleInheritanceMemoryLayout, MultiDerivedMemoryLayout) { // NOLI
     p_obj->haa();
     p_obj->non();
 
-    auto *p_bro = new derived_bro();
-
     delete p_obj;
 
 }

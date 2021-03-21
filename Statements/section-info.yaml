@@ -1,6 +1,7 @@
 content:
 - Declaration
 - Definition
+- Initializations
 - Scopes
 - Classes
 - Functions

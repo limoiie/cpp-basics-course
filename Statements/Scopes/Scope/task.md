@@ -1,8 +1,8 @@
 # Scope
 
-在 C++ program 中, (绝大部分) Scopes 是以 `{}` 界定的一块块区域 (可能并不连续).
+在 C++ program 中, (绝大部分) scopes 是以 `{}` 界定的一块块区域 (可能并不连续).
 每一个 scope 都为在其中 declared 的 names 限定了 potential name-scope<sup>1</sup> (潜在命名作用域):
-在某一点 declare 的 name, 只在从该 declaration 点开始、直到所在 scope 末尾结束的这部分有意义.
+在某一点 declare 的 name, 只在从该 declaration 点开始、直到所在 scope 末尾结束的这部分可见.
 
 可将 scope 划分为如下几种:
 
@@ -13,9 +13,8 @@
 5. Enumeration scope
 6. Template parameter scope
 
-在前两种 scope 情况下,
-对于 name 中的 variables(/reference) 而言, 
-其进入 name-scope 时会发生 construction(/binding), 
+在前两种 scope 中 defined 的 variables/reference,
+在进入 name-scope 时会发生 construction(/binding), 
 并在退出 name-scope 时发生 deconstruction(/unbinding).
 
 <sup>1</sup>: 这里的 name-scope 在 [cppreference](https://en.cppreference.com/w/cpp/language/scope) 中其实也是被称为 scope 的.

@@ -1,6 +1,6 @@
-# Initialization
+# Initializer
 
-Initialization 发生在 object construction 期间, 它为 object 提供初始值.
+Initialization 发生在 object construction 期间, 它通过为 declaration 添加 initializer 来实现.
 
 ## Syntax
 
@@ -27,4 +27,3 @@ initializer
   - 当 type 是 aggregate type 时<br>
     而 aggregate type 是 
     - array Type, 或是
-- Reference initialization strategy
