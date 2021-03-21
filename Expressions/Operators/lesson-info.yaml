@@ -5,5 +5,5 @@ content:
 - Logical
 - Bitwise
 - Assignment
+- Cast
 - Operator_Precedence
-- Type_Convertion
